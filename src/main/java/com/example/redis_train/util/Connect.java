@@ -9,10 +9,10 @@ import  io.lettuce.core.pubsub.api.sync.RedisPubSubCommands;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 
 public class Connect {
-     static RedisClient  client;
-     static StatefulRedisConnection<String, String> connection;
+    public static RedisClient  client;
+    public static StatefulRedisConnection<String, String> connection;
     public static RedisCommands<String, String> redis;
-    public static RedisPubSubAsyncCommands<String,String> pubredis;
+    public static RedisPubSubCommands<String,String> pubredis;
     static{
           client = RedisClient.create("redis://localhost:6379/0");
          //redis=  client.connectPubSub().async();
@@ -52,7 +52,7 @@ public class Connect {
        // redis.
          connection = client.connect(); // 获取一个连接
         redis = connection.sync(); // 获取同步指令集
-        pubredis=client.connectPubSub().async();
+        pubredis=client.connectPubSub().sync();
 
         // connection.close(); // 关闭连接
         // client.shutdown(); // 关闭所有连接

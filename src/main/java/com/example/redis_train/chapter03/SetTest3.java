@@ -3,10 +3,11 @@ package com.example.redis_train.chapter03;
 import com.example.redis_train.util.Connect;
 import io.lettuce.core.api.sync.RedisCommands;
 import io.lettuce.core.pubsub.api.async.RedisPubSubAsyncCommands;
+import io.lettuce.core.pubsub.api.sync.RedisPubSubCommands;
 import org.junit.Test;
 
 public class SetTest3 {
-    public static RedisPubSubAsyncCommands<String,String> redisCommands= Connect.pubredis;
+    public static RedisPubSubCommands<String,String> redisCommands= Connect.pubredis;
     @Test
     public  void test(){
         redisCommands.sadd("set","3 1","3 2","3 3");

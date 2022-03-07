@@ -10,5 +10,6 @@ public class ListTest {
         redisCommands.lrange("list",0,-1);
         redisCommands.lindex("list",1);
         redisCommands.lpop("list");
+
     }
 }
